@@ -1,5 +1,5 @@
 
-package com.evotext.clever;
+package com.evotext.clever.model;
 
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonInclude;

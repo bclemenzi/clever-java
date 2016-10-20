@@ -1,29 +1,13 @@
 
-package com.evotext.clever;
+package com.evotext.clever.model;
 
-import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-    "address",
-    "city",
-    "state",
-    "zip"
-})
 public class Location {
 
-    @JsonProperty("address")
     private String address;
-    @JsonProperty("city")
     private String city;
-    @JsonProperty("state")
     private String state;
-    @JsonProperty("zip")
     private String zip;
 
     /**
@@ -31,7 +15,6 @@ public class Location {
      * @return
      *     The address
      */
-    @JsonProperty("address")
     public String getAddress() {
         return address;
     }
@@ -41,7 +24,6 @@ public class Location {
      * @param address
      *     The address
      */
-    @JsonProperty("address")
     public void setAddress(String address) {
         this.address = address;
     }
@@ -51,7 +33,6 @@ public class Location {
      * @return
      *     The city
      */
-    @JsonProperty("city")
     public String getCity() {
         return city;
     }
@@ -61,7 +42,6 @@ public class Location {
      * @param city
      *     The city
      */
-    @JsonProperty("city")
     public void setCity(String city) {
         this.city = city;
     }
@@ -71,7 +51,6 @@ public class Location {
      * @return
      *     The state
      */
-    @JsonProperty("state")
     public String getState() {
         return state;
     }
@@ -81,7 +60,6 @@ public class Location {
      * @param state
      *     The state
      */
-    @JsonProperty("state")
     public void setState(String state) {
         this.state = state;
     }
@@ -91,7 +69,6 @@ public class Location {
      * @return
      *     The zip
      */
-    @JsonProperty("zip")
     public String getZip() {
         return zip;
     }
@@ -101,7 +78,6 @@ public class Location {
      * @param zip
      *     The zip
      */
-    @JsonProperty("zip")
     public void setZip(String zip) {
         this.zip = zip;
     }

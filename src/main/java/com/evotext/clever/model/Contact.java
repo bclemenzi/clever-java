@@ -1,33 +1,19 @@
-package com.evotext.clever;
+package com.evotext.clever.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "district", "email", "name", "phone", "student", "type", "id" })
 public class Contact {
 
-	@JsonProperty("district")
 	private String district;
-	@JsonProperty("email")
 	private String email;
-	@JsonProperty("name")
 	private String name;
-	@JsonProperty("phone")
 	private String phone;
-	@JsonProperty("student")
 	private String student;
-	@JsonProperty("type")
 	private String type;
-	@JsonProperty("id")
 	private String id;
 
 	/**
 	 * 
 	 * @return The district
 	 */
-	@JsonProperty("district")
 	public String getDistrict() {
 		return district;
 	}
@@ -37,7 +23,6 @@ public class Contact {
 	 * @param district
 	 *            The district
 	 */
-	@JsonProperty("district")
 	public void setDistrict(String district) {
 		this.district = district;
 	}
@@ -46,7 +31,6 @@ public class Contact {
 	 * 
 	 * @return The email
 	 */
-	@JsonProperty("email")
 	public String getEmail() {
 		return email;
 	}
@@ -56,7 +40,6 @@ public class Contact {
 	 * @param email
 	 *            The email
 	 */
-	@JsonProperty("email")
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -65,7 +48,6 @@ public class Contact {
 	 * 
 	 * @return The name
 	 */
-	@JsonProperty("name")
 	public String getName() {
 		return name;
 	}
@@ -75,7 +57,6 @@ public class Contact {
 	 * @param name
 	 *            The name
 	 */
-	@JsonProperty("name")
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -84,7 +65,6 @@ public class Contact {
 	 * 
 	 * @return The phone
 	 */
-	@JsonProperty("phone")
 	public String getPhone() {
 		return phone;
 	}
@@ -94,7 +74,6 @@ public class Contact {
 	 * @param phone
 	 *            The phone
 	 */
-	@JsonProperty("phone")
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
@@ -103,7 +82,6 @@ public class Contact {
 	 * 
 	 * @return The student
 	 */
-	@JsonProperty("student")
 	public String getStudent() {
 		return student;
 	}
@@ -113,7 +91,6 @@ public class Contact {
 	 * @param student
 	 *            The student
 	 */
-	@JsonProperty("student")
 	public void setStudent(String student) {
 		this.student = student;
 	}
@@ -122,7 +99,6 @@ public class Contact {
 	 * 
 	 * @return The type
 	 */
-	@JsonProperty("type")
 	public String getType() {
 		return type;
 	}
@@ -132,7 +108,6 @@ public class Contact {
 	 * @param type
 	 *            The type
 	 */
-	@JsonProperty("type")
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -141,7 +116,6 @@ public class Contact {
 	 * 
 	 * @return The id
 	 */
-	@JsonProperty("id")
 	public String getId() {
 		return id;
 	}
@@ -151,7 +125,6 @@ public class Contact {
 	 * @param id
 	 *            The id
 	 */
-	@JsonProperty("id")
 	public void setId(String id) {
 		this.id = id;
 	}

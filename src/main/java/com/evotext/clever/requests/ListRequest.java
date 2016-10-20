@@ -1,8 +1,9 @@
 package com.evotext.clever.requests;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class ListRequest extends CleverRequest {
+public class ListRequest extends CleverRequest implements CleverRequestInterface{
 
 	protected int limit = 100;
 	protected String startingAfter;
@@ -29,6 +30,24 @@ public class ListRequest extends CleverRequest {
 	public boolean isCount() {
 		return count;
 	}
+	
+	public Map<String, Object> getParameters()
+	{
+		Map<String, Object> parameters = new HashMap<>();
+		if (count)
+		{
+			parameters.put("count", "true");
+		}
+		else
+		{
+			parameters.put("limit", limit);
+			parameters.put("starting_after", startingAfter);
+			parameters.put("ending_before", endingBefore);
+			parameters.put("where", where);
+			parameters.put("count", "false");
+		}
+		return parameters;
+	}
 
 	public static class Builder{
 		private int limit;
@@ -38,10 +57,12 @@ public class ListRequest extends CleverRequest {
 		private boolean count;
 		private Map<String, Object> parameters;
 		private String token;
+		private String url;
 		
-		public Builder(final String token)
+		public Builder(final String token, final String url)
 		{
 			this.token = token;
+			this.url = url;
 		}
 
 		public Builder parameters(Map<String, Object> parameters) {
@@ -94,5 +115,7 @@ public class ListRequest extends CleverRequest {
 		this.count = builder.count;
 		this.parameters = builder.parameters;
 		this.token = builder.token;
+		this.url = builder.url;
 	}
+
 }

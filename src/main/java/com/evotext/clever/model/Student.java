@@ -1,5 +1,5 @@
 
-package com.evotext.clever;
+package com.evotext.clever.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

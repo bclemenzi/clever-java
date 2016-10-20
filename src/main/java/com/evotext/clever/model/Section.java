@@ -1,5 +1,5 @@
 
-package com.evotext.clever;
+package com.evotext.clever.model;
 
 import java.util.ArrayList;
 import java.util.List;

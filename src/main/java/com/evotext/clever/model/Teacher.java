@@ -1,5 +1,5 @@
 
-package com.evotext.clever;
+package com.evotext.clever.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "id",
     "state_id"
 })
-public class Teacher {
+public class Teacher implements Base{
 
     @JsonProperty("district")
     private String district;
