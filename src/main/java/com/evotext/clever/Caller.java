@@ -23,8 +23,6 @@ public class Caller {
 
 		ListRequest request = new ListRequest.Builder(clever.getToken(), url).build();
 		JSONObject jo = Connect.get(request);
-		
-		System.out.println(jo);
 
 		JSONArray arrJson= jo.getJSONArray("data");
 		ObjectMapper mapper = new ObjectMapper();
@@ -52,6 +50,17 @@ public class Caller {
 		
 		//Teacher teacher = (Teacher) jo.get("data");
 		return teacher;
+	}
+
+	public static int getTeacherCount(final Clever clever) throws JSONException {
+		String url = clever.getFullUrl() + "teachers";
+
+		ListRequest request = new ListRequest.Builder(clever.getToken(), url).count(true).build();
+		JSONObject jo = Connect.get(request);
+		int i = jo.getInt("count");
+		System.out.println(jo);
+
+		return i;
 	}
 	
 	/*

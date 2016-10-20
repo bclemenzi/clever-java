@@ -48,6 +48,11 @@ public class Clever {
 		return Caller.getTeacher(id, this);
 	}
 	
+	public int getTeacherCount() throws JSONException
+	{
+		return Caller.getTeacherCount(this);
+	}
+	
 	public List<Section> getTeacherSections(final String id)
 	{
 		return null;

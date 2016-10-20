@@ -17,7 +17,7 @@ public class Connect {
 		try 
 		{
 			jsonObject = webb.get(request.getUrl())
-				//.params(request.getParameters())
+				.params(request.getParameters())
 				.ensureSuccess()
 				.asJsonObject()
 				.getBody();

@@ -38,14 +38,6 @@ public class ListRequest extends CleverRequest implements CleverRequestInterface
 		{
 			parameters.put("count", "true");
 		}
-		else
-		{
-			parameters.put("limit", limit);
-			parameters.put("starting_after", startingAfter);
-			parameters.put("ending_before", endingBefore);
-			parameters.put("where", where);
-			parameters.put("count", "false");
-		}
 		return parameters;
 	}
 
@@ -55,7 +47,7 @@ public class ListRequest extends CleverRequest implements CleverRequestInterface
 		private String endingBefore;
 		private String where;
 		private boolean count;
-		private Map<String, Object> parameters;
+		private Map<String, Object> parameters = new HashMap<>();
 		private String token;
 		private String url;
 		
@@ -63,11 +55,6 @@ public class ListRequest extends CleverRequest implements CleverRequestInterface
 		{
 			this.token = token;
 			this.url = url;
-		}
-
-		public Builder parameters(Map<String, Object> parameters) {
-			this.parameters = parameters;
-			return this;
 		}
 
 		public Builder token(String token) {
@@ -79,21 +66,25 @@ public class ListRequest extends CleverRequest implements CleverRequestInterface
 
 		public Builder limit(int limit) {
 			this.limit = limit;
+			parameters.put("limit", limit);
 			return this;
 		}
 
 		public Builder startingAfter(String startingAfter) {
 			this.startingAfter = startingAfter;
+			parameters.put("startingAfter", startingAfter);
 			return this;
 		}
 
 		public Builder endingBefore(String endingBefore) {
 			this.endingBefore = endingBefore;
+			parameters.put("endingBefore",endingBefore);
 			return this;
 		}
 
 		public Builder where(String where) {
 			this.where = where;
+			parameters.put("where", where);
 			return this;
 		}
 

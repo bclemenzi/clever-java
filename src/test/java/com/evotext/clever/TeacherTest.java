@@ -31,4 +31,11 @@ public class TeacherTest {
 		List<Teacher> list = clever.getTeachers();
 		assertEquals(list.size(), 92);
 	}
+	
+	@Test
+	public void testTeacherCount() throws JsonParseException, JsonMappingException, IOException, JSONException 
+	{
+		int i = clever.getTeacherCount();
+		assertEquals(i, 92);
+	}
 }
