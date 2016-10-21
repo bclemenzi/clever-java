@@ -53,7 +53,15 @@ District districtValue = cleverDistrictsClient.getDistrict();
 System.out.println("District ID: " + districtValue.getId());
 ```
 
-Get the schools within the district using the CleverDistrictsClient
+Get a count of the number of schools within the district using the CleverDistrictsClient.  This can be useful when setting up your paging of the total number of records.
+
+```java	 
+String districtId = "4fd43cc56d11340000000005";
+BigInteger schoolTotal = cleverDistrictsClient.countDistrictSchools(districtId);
+System.out.println("School Count: " + schoolTotal.toString());
+```
+
+Get the first 10 schools within the district using the CleverDistrictsClient
 
 ```java	
 String districtId = "4fd43cc56d11340000000005";
