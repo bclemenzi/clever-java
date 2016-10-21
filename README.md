@@ -65,7 +65,7 @@ for(School schoolValue : schoolList)
 }
 ```
 
-Get the teachers within the district using the CleverDistrictsClient
+Get the first 10 teachers within the district using the CleverDistrictsClient
 
 ```java	
 String districtId = "4fd43cc56d11340000000005";
@@ -77,7 +77,7 @@ for(Teacher teacherValue : teacherList)
 }
 ```
 
-Get the students within the district using the CleverDistrictsClient
+Get the first 10 students within the district using the CleverDistrictsClient
 
 ```java	
 String districtId = "4fd43cc56d11340000000005";
