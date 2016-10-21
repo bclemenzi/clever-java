@@ -102,7 +102,7 @@ Get the student by their Clever ID using the CleverStudentsClient
 
 ```java	
 String studentId = "530e5960049e75a9262cff1d";
-Teacher studentValue = cleverStudentsClient.getStudent(studentId);
+Student studentValue = cleverStudentsClient.getStudent(studentId);
 
 System.out.println("Student Name: " + studentValue.getName());
 ```
