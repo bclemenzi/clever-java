@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.junit.Test;
 
 import com.evotext.clever.model.Teacher;
+import com.evotext.clever.util.Clever;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 

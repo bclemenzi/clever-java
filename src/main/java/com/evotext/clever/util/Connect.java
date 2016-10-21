@@ -1,4 +1,4 @@
-package com.evotext.clever;
+package com.evotext.clever.util;
 
 import org.json.JSONObject;
 
