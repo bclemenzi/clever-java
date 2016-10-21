@@ -13,20 +13,15 @@ import com.evotext.clever.model.Student;
 import com.evotext.clever.model.Teacher;
 import com.evotext.clever.util.StringUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.goebl.david.Webb;
-import com.goebl.david.WebbException;
 
 /**
  * The CleverStudentsClient class is used to execute Clever's "students" API end points.
  *  
  * @author brendanclemenzi
  */
-public class CleverStudentsClient
+public class CleverStudentsClient extends CleverClient
 {
     private String m_districtOAuthToken;
-    
-    private String m_apiUrl = "https://api.clever.com";
-    private String m_version = "v1.1";
     
     /**
      * 
@@ -176,45 +171,5 @@ public class CleverStudentsClient
         }
         
         return objectList;
-    }
-
-    /**
-     * 
-     * @param apiUrl
-     * @param oAuthToken
-     * @param parameters
-     * @return
-     */
-    private JSONObject get(String apiUrl, String oAuthToken, Map<String, Object> parameters)
-    {
-        Webb webb = Webb.create();
-        webb.setDefaultHeader(Webb.HDR_AUTHORIZATION, "Bearer " + oAuthToken);
-        
-        JSONObject jsonObject = null;
-        
-        try 
-        {
-            jsonObject = webb.get(apiUrl)
-                .params(parameters)
-                .ensureSuccess()
-                .asJsonObject()
-                .getBody();
-        }
-        catch (WebbException we)
-        {
-            System.out.println(we);
-            jsonObject = new JSONObject();
-        }
-        
-        return jsonObject;
-    }
-    
-    /**
-     * 
-     * @return
-     */
-    private String getBaseUrl()
-    {
-        return this.m_apiUrl + "/" + this.m_version + "/";
     }
 }
