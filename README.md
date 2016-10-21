@@ -39,7 +39,7 @@ The clever-java wrapper is broken up into a few different client classes.  This 
  * CleverStudentsClient - Covering the API endpoints for the "Students" endpoints: [Students API](https://clever.com/developers/docs/explorer#resource_students)
 
 ```java	
-String districtOAuthToken = "25...89e9";  //set your district oAuth token id here.
+String DISTRICT_OAUTH_TOKEN = "DEMO_TOKEN";  //set your district oAuth token id here.
 
 CleverDistrictsClient cleverDistrictsClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
 CleverTeachersClient cleverTeachersClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
