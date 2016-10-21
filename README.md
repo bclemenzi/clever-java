@@ -48,10 +48,8 @@ CleverStudentsClient cleverStudentsClient = new CleverStudentsClient(DISTRICT_OA
 
 Get the district information using the CleverDistrictsClient
 
-```java	
-CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
-        
-District districtValue = cleverClient.getDistrict();
+```java	 
+District districtValue = cleverDistrictsClient.getDistrict();
 System.out.println("District ID: " + districtValue.getId());
 ```
 
@@ -89,4 +87,22 @@ for(Student studentValue : studentList)
 {
 	System.out.println("Student Name: " + studentValue.getName());
 }
+```
+
+Get the teacher by their Clever ID using the CleverTeachersClient
+
+```java	
+String teacherId = "509fbd7ec474fab64a8e9d53";
+Teacher teacherValue = cleverTeachersClient.getTeacher(teacherId);
+
+System.out.println("Teacher Name: " + teacherValue.getName());
+```
+
+Get the student by their Clever ID using the CleverStudentsClient
+
+```java	
+String studentId = "530e5960049e75a9262cff1d";
+Teacher studentValue = cleverStudentsClient.getStudent(studentId);
+
+System.out.println("Student Name: " + studentValue.getName());
 ```
