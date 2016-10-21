@@ -1,4 +1,3 @@
-
 package com.evotext.clever.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -7,474 +6,499 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * 
+ * @author derekjackson
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "created",
-    "credentials",
-    "district",
-    "dob",
-    "ell_status",
-    "email",
-    "frl_status",
-    "gender",
-    "grade",
-    "hispanic_ethnicity",
-    "iep_status",
-    "last_modified",
-    "location",
-    "name",
-    "race",
-    "school",
-    "sis_id",
-    "state_id",
-    "student_number",
-    "id"
-})
-public class Student {
-
+@JsonPropertyOrder({ "created", "credentials", "district", "dob", "ell_status", "email", "frl_status", "gender", "grade", "hispanic_ethnicity",
+        "iep_status", "last_modified", "location", "name", "race", "school", "sis_id", "state_id", "student_number", "id" })
+public class Student
+{
     @JsonProperty("created")
     private String created;
+    
     @JsonProperty("credentials")
     private Credentials credentials;
+    
     @JsonProperty("district")
     private String district;
+    
     @JsonProperty("dob")
     private String dob;
+    
     @JsonProperty("ell_status")
     private String ellStatus;
+    
     @JsonProperty("email")
     private String email;
+    
     @JsonProperty("frl_status")
     private String frlStatus;
+    
     @JsonProperty("gender")
     private String gender;
+    
     @JsonProperty("grade")
     private String grade;
+    
     @JsonProperty("hispanic_ethnicity")
     private String hispanicEthnicity;
+    
     @JsonProperty("iep_status")
     private String iepStatus;
+    
     @JsonProperty("last_modified")
     private String lastModified;
+    
     @JsonProperty("location")
     private Location location;
+    
     @JsonProperty("name")
     private Name name;
+    
     @JsonProperty("race")
     private String race;
+    
     @JsonProperty("school")
     private String school;
+    
     @JsonProperty("sis_id")
     private String sisId;
+    
     @JsonProperty("state_id")
     private String stateId;
+    
     @JsonProperty("student_number")
     private String studentNumber;
+    
     @JsonProperty("id")
     private String id;
 
     /**
      * 
-     * @return
-     *     The created
+     * @return The created
      */
     @JsonProperty("created")
-    public String getCreated() {
+    public String getCreated()
+    {
         return created;
     }
 
     /**
      * 
      * @param created
-     *     The created
+     *            The created
      */
     @JsonProperty("created")
-    public void setCreated(String created) {
+    public void setCreated(String created)
+    {
         this.created = created;
     }
 
     /**
      * 
-     * @return
-     *     The credentials
+     * @return The credentials
      */
     @JsonProperty("credentials")
-    public Credentials getCredentials() {
+    public Credentials getCredentials()
+    {
         return credentials;
     }
 
     /**
      * 
      * @param credentials
-     *     The credentials
+     *            The credentials
      */
     @JsonProperty("credentials")
-    public void setCredentials(Credentials credentials) {
+    public void setCredentials(Credentials credentials)
+    {
         this.credentials = credentials;
     }
 
     /**
      * 
-     * @return
-     *     The district
+     * @return The district
      */
     @JsonProperty("district")
-    public String getDistrict() {
+    public String getDistrict()
+    {
         return district;
     }
 
     /**
      * 
      * @param district
-     *     The district
+     *            The district
      */
     @JsonProperty("district")
-    public void setDistrict(String district) {
+    public void setDistrict(String district)
+    {
         this.district = district;
     }
 
     /**
      * 
-     * @return
-     *     The dob
+     * @return The dob
      */
     @JsonProperty("dob")
-    public String getDob() {
+    public String getDob()
+    {
         return dob;
     }
 
     /**
      * 
      * @param dob
-     *     The dob
+     *            The dob
      */
     @JsonProperty("dob")
-    public void setDob(String dob) {
+    public void setDob(String dob)
+    {
         this.dob = dob;
     }
 
     /**
      * 
-     * @return
-     *     The ellStatus
+     * @return The ellStatus
      */
     @JsonProperty("ell_status")
-    public String getEllStatus() {
+    public String getEllStatus()
+    {
         return ellStatus;
     }
 
     /**
      * 
      * @param ellStatus
-     *     The ell_status
+     *            The ell_status
      */
     @JsonProperty("ell_status")
-    public void setEllStatus(String ellStatus) {
+    public void setEllStatus(String ellStatus)
+    {
         this.ellStatus = ellStatus;
     }
 
     /**
      * 
-     * @return
-     *     The email
+     * @return The email
      */
     @JsonProperty("email")
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
     /**
      * 
      * @param email
-     *     The email
+     *            The email
      */
     @JsonProperty("email")
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
     /**
      * 
-     * @return
-     *     The frlStatus
+     * @return The frlStatus
      */
     @JsonProperty("frl_status")
-    public String getFrlStatus() {
+    public String getFrlStatus()
+    {
         return frlStatus;
     }
 
     /**
      * 
      * @param frlStatus
-     *     The frl_status
+     *            The frl_status
      */
     @JsonProperty("frl_status")
-    public void setFrlStatus(String frlStatus) {
+    public void setFrlStatus(String frlStatus)
+    {
         this.frlStatus = frlStatus;
     }
 
     /**
      * 
-     * @return
-     *     The gender
+     * @return The gender
      */
     @JsonProperty("gender")
-    public String getGender() {
+    public String getGender()
+    {
         return gender;
     }
 
     /**
      * 
      * @param gender
-     *     The gender
+     *            The gender
      */
     @JsonProperty("gender")
-    public void setGender(String gender) {
+    public void setGender(String gender)
+    {
         this.gender = gender;
     }
 
     /**
      * 
-     * @return
-     *     The grade
+     * @return The grade
      */
     @JsonProperty("grade")
-    public String getGrade() {
+    public String getGrade()
+    {
         return grade;
     }
 
     /**
      * 
      * @param grade
-     *     The grade
+     *            The grade
      */
     @JsonProperty("grade")
-    public void setGrade(String grade) {
+    public void setGrade(String grade)
+    {
         this.grade = grade;
     }
 
     /**
      * 
-     * @return
-     *     The hispanicEthnicity
+     * @return The hispanicEthnicity
      */
     @JsonProperty("hispanic_ethnicity")
-    public String getHispanicEthnicity() {
+    public String getHispanicEthnicity()
+    {
         return hispanicEthnicity;
     }
 
     /**
      * 
      * @param hispanicEthnicity
-     *     The hispanic_ethnicity
+     *            The hispanic_ethnicity
      */
     @JsonProperty("hispanic_ethnicity")
-    public void setHispanicEthnicity(String hispanicEthnicity) {
+    public void setHispanicEthnicity(String hispanicEthnicity)
+    {
         this.hispanicEthnicity = hispanicEthnicity;
     }
 
     /**
      * 
-     * @return
-     *     The iepStatus
+     * @return The iepStatus
      */
     @JsonProperty("iep_status")
-    public String getIepStatus() {
+    public String getIepStatus()
+    {
         return iepStatus;
     }
 
     /**
      * 
      * @param iepStatus
-     *     The iep_status
+     *            The iep_status
      */
     @JsonProperty("iep_status")
-    public void setIepStatus(String iepStatus) {
+    public void setIepStatus(String iepStatus)
+    {
         this.iepStatus = iepStatus;
     }
 
     /**
      * 
-     * @return
-     *     The lastModified
+     * @return The lastModified
      */
     @JsonProperty("last_modified")
-    public String getLastModified() {
+    public String getLastModified()
+    {
         return lastModified;
     }
 
     /**
      * 
      * @param lastModified
-     *     The last_modified
+     *            The last_modified
      */
     @JsonProperty("last_modified")
-    public void setLastModified(String lastModified) {
+    public void setLastModified(String lastModified)
+    {
         this.lastModified = lastModified;
     }
 
     /**
      * 
-     * @return
-     *     The location
+     * @return The location
      */
     @JsonProperty("location")
-    public Location getLocation() {
+    public Location getLocation()
+    {
         return location;
     }
 
     /**
      * 
      * @param location
-     *     The location
+     *            The location
      */
     @JsonProperty("location")
-    public void setLocation(Location location) {
+    public void setLocation(Location location)
+    {
         this.location = location;
     }
 
     /**
      * 
-     * @return
-     *     The name
+     * @return The name
      */
     @JsonProperty("name")
-    public Name getName() {
+    public Name getName()
+    {
         return name;
     }
 
     /**
      * 
      * @param name
-     *     The name
+     *            The name
      */
     @JsonProperty("name")
-    public void setName(Name name) {
+    public void setName(Name name)
+    {
         this.name = name;
     }
 
     /**
      * 
-     * @return
-     *     The race
+     * @return The race
      */
     @JsonProperty("race")
-    public String getRace() {
+    public String getRace()
+    {
         return race;
     }
 
     /**
      * 
      * @param race
-     *     The race
+     *            The race
      */
     @JsonProperty("race")
-    public void setRace(String race) {
+    public void setRace(String race)
+    {
         this.race = race;
     }
 
     /**
      * 
-     * @return
-     *     The school
+     * @return The school
      */
     @JsonProperty("school")
-    public String getSchool() {
+    public String getSchool()
+    {
         return school;
     }
 
     /**
      * 
      * @param school
-     *     The school
+     *            The school
      */
     @JsonProperty("school")
-    public void setSchool(String school) {
+    public void setSchool(String school)
+    {
         this.school = school;
     }
 
     /**
      * 
-     * @return
-     *     The sisId
+     * @return The sisId
      */
     @JsonProperty("sis_id")
-    public String getSisId() {
+    public String getSisId()
+    {
         return sisId;
     }
 
     /**
      * 
      * @param sisId
-     *     The sis_id
+     *            The sis_id
      */
     @JsonProperty("sis_id")
-    public void setSisId(String sisId) {
+    public void setSisId(String sisId)
+    {
         this.sisId = sisId;
     }
 
     /**
      * 
-     * @return
-     *     The stateId
+     * @return The stateId
      */
     @JsonProperty("state_id")
-    public String getStateId() {
+    public String getStateId()
+    {
         return stateId;
     }
 
     /**
      * 
      * @param stateId
-     *     The state_id
+     *            The state_id
      */
     @JsonProperty("state_id")
-    public void setStateId(String stateId) {
+    public void setStateId(String stateId)
+    {
         this.stateId = stateId;
     }
 
     /**
      * 
-     * @return
-     *     The studentNumber
+     * @return The studentNumber
      */
     @JsonProperty("student_number")
-    public String getStudentNumber() {
+    public String getStudentNumber()
+    {
         return studentNumber;
     }
 
     /**
      * 
      * @param studentNumber
-     *     The student_number
+     *            The student_number
      */
     @JsonProperty("student_number")
-    public void setStudentNumber(String studentNumber) {
+    public void setStudentNumber(String studentNumber)
+    {
         this.studentNumber = studentNumber;
     }
 
     /**
      * 
-     * @return
-     *     The id
+     * @return The id
      */
     @JsonProperty("id")
-    public String getId() {
+    public String getId()
+    {
         return id;
     }
 
     /**
      * 
      * @param id
-     *     The id
+     *            The id
      */
     @JsonProperty("id")
-    public void setId(String id) {
+    public void setId(String id)
+    {
         this.id = id;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return ToStringBuilder.reflectionToString(this);
     }
 

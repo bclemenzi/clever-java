@@ -1,298 +1,312 @@
-
 package com.evotext.clever.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * 
+ * @author derekjackson
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "district",
-    "email",
-    "school",
-    "sis_id",
-    "teacher_number",
-    "title",
-    "name",
-    "last_modified",
-    "created",
-    "credentials",
-    "id",
-    "state_id"
-})
-public class Teacher implements Base{
-
+@JsonPropertyOrder({ "district", "email", "school", "sis_id", "teacher_number", "title", "name", "last_modified", "created", "credentials", "id", "state_id" })
+public class Teacher implements Base
+{
     @JsonProperty("district")
     private String district;
+    
     @JsonProperty("email")
     private String email;
+    
     @JsonProperty("school")
     private String school;
+    
     @JsonProperty("sis_id")
     private String sisId;
+    
     @JsonProperty("teacher_number")
     private String teacherNumber;
+    
     @JsonProperty("title")
     private String title;
+    
     @JsonProperty("name")
     private Name name;
+    
     @JsonProperty("last_modified")
     private String lastModified;
+    
     @JsonProperty("created")
     private String created;
+    
     @JsonProperty("credentials")
     private Credentials credentials;
+    
     @JsonProperty("id")
     private String id;
+    
     @JsonProperty("state_id")
     private String stateId;
 
     /**
      * 
-     * @return
-     *     The district
+     * @return The district
      */
     @JsonProperty("district")
-    public String getDistrict() {
+    public String getDistrict()
+    {
         return district;
     }
 
     /**
      * 
      * @param district
-     *     The district
+     *            The district
      */
     @JsonProperty("district")
-    public void setDistrict(String district) {
+    public void setDistrict(String district)
+    {
         this.district = district;
     }
 
     /**
      * 
-     * @return
-     *     The email
+     * @return The email
      */
     @JsonProperty("email")
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
     /**
      * 
      * @param email
-     *     The email
+     *            The email
      */
     @JsonProperty("email")
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
     /**
      * 
-     * @return
-     *     The school
+     * @return The school
      */
     @JsonProperty("school")
-    public String getSchool() {
+    public String getSchool()
+    {
         return school;
     }
 
     /**
      * 
      * @param school
-     *     The school
+     *            The school
      */
     @JsonProperty("school")
-    public void setSchool(String school) {
+    public void setSchool(String school)
+    {
         this.school = school;
     }
 
     /**
      * 
-     * @return
-     *     The sisId
+     * @return The sisId
      */
     @JsonProperty("sis_id")
-    public String getSisId() {
+    public String getSisId()
+    {
         return sisId;
     }
 
     /**
      * 
      * @param sisId
-     *     The sis_id
+     *            The sis_id
      */
     @JsonProperty("sis_id")
-    public void setSisId(String sisId) {
+    public void setSisId(String sisId)
+    {
         this.sisId = sisId;
     }
 
     /**
      * 
-     * @return
-     *     The teacherNumber
+     * @return The teacherNumber
      */
     @JsonProperty("teacher_number")
-    public String getTeacherNumber() {
+    public String getTeacherNumber()
+    {
         return teacherNumber;
     }
 
     /**
      * 
      * @param teacherNumber
-     *     The teacher_number
+     *            The teacher_number
      */
     @JsonProperty("teacher_number")
-    public void setTeacherNumber(String teacherNumber) {
+    public void setTeacherNumber(String teacherNumber)
+    {
         this.teacherNumber = teacherNumber;
     }
 
     /**
      * 
-     * @return
-     *     The title
+     * @return The title
      */
     @JsonProperty("title")
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
     /**
      * 
      * @param title
-     *     The title
+     *            The title
      */
     @JsonProperty("title")
-    public void setTitle(String title) {
+    public void setTitle(String title)
+    {
         this.title = title;
     }
 
     /**
      * 
-     * @return
-     *     The name
+     * @return The name
      */
     @JsonProperty("name")
-    public Name getName() {
+    public Name getName()
+    {
         return name;
     }
 
     /**
      * 
      * @param name
-     *     The name
+     *            The name
      */
     @JsonProperty("name")
-    public void setName(Name name) {
+    public void setName(Name name)
+    {
         this.name = name;
     }
 
     /**
      * 
-     * @return
-     *     The lastModified
+     * @return The lastModified
      */
     @JsonProperty("last_modified")
-    public String getLastModified() {
+    public String getLastModified()
+    {
         return lastModified;
     }
 
     /**
      * 
      * @param lastModified
-     *     The last_modified
+     *            The last_modified
      */
     @JsonProperty("last_modified")
-    public void setLastModified(String lastModified) {
+    public void setLastModified(String lastModified)
+    {
         this.lastModified = lastModified;
     }
 
     /**
      * 
-     * @return
-     *     The created
+     * @return The created
      */
     @JsonProperty("created")
-    public String getCreated() {
+    public String getCreated()
+    {
         return created;
     }
 
     /**
      * 
      * @param created
-     *     The created
+     *            The created
      */
     @JsonProperty("created")
-    public void setCreated(String created) {
+    public void setCreated(String created)
+    {
         this.created = created;
     }
 
     /**
      * 
-     * @return
-     *     The credentials
+     * @return The credentials
      */
     @JsonProperty("credentials")
-    public Credentials getCredentials() {
+    public Credentials getCredentials()
+    {
         return credentials;
     }
 
     /**
      * 
      * @param credentials
-     *     The credentials
+     *            The credentials
      */
     @JsonProperty("credentials")
-    public void setCredentials(Credentials credentials) {
+    public void setCredentials(Credentials credentials)
+    {
         this.credentials = credentials;
     }
 
     /**
      * 
-     * @return
-     *     The id
+     * @return The id
      */
     @JsonProperty("id")
-    public String getId() {
+    public String getId()
+    {
         return id;
     }
 
     /**
      * 
      * @param id
-     *     The id
+     *            The id
      */
     @JsonProperty("id")
-    public void setId(String id) {
+    public void setId(String id)
+    {
         this.id = id;
     }
 
     /**
      * 
-     * @return
-     *     The stateId
+     * @return The stateId
      */
     @JsonProperty("state_id")
-    public String getStateId() {
+    public String getStateId()
+    {
         return stateId;
     }
 
     /**
      * 
      * @param stateId
-     *     The state_id
+     *            The state_id
      */
     @JsonProperty("state_id")
-    public void setStateId(String stateId) {
+    public void setStateId(String stateId)
+    {
         this.stateId = stateId;
     }
 
-	@Override
-	public String toString() {
-		return "Teacher [district=" + district + ", email=" + email + ", school=" + school + ", sisId=" + sisId
-				+ ", teacherNumber=" + teacherNumber + ", title=" + title + ", name=" + name + ", lastModified="
-				+ lastModified + ", created=" + created + ", credentials=" + credentials + ", id=" + id + ", stateId="
-				+ stateId + "]";
-	}
+    @Override
+    public String toString()
+    {
+        return "Teacher [district=" + district + ", email=" + email + ", school=" + school + ", sisId=" + sisId + ", teacherNumber=" + teacherNumber
+                + ", title=" + title + ", name=" + name + ", lastModified=" + lastModified + ", created=" + created + ", credentials=" + credentials
+                + ", id=" + id + ", stateId=" + stateId + "]";
+    }
 
 }

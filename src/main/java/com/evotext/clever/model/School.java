@@ -1,280 +1,161 @@
-
 package com.evotext.clever.model;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class School {
-
-    private String created;
-    private String district;
-    private String highGrade;
-    private String lastModified;
-    private Location location;
-    private String lowGrade;
-    private String name;
-    private String ncesId;
-    private String phone;
-    private Principal principal;
-    private String schoolNumber;
-    private String sisId;
-    private String stateId;
+public class School
+{
     private String id;
+    private String school_number;
+    private String state_id;
+    private String last_modified;
+    private String phone;
+    private String nces_id;
+    private String created;
+    private String sis_id;
+    private String high_grade;
+    private String name;
+    private String low_grade;
+    private String district;
 
-    /**
-     * 
-     * @return
-     *     The created
-     */
-    public String getCreated() {
-        return created;
-    }
+    private Location location;
+    private Principal principal;
 
-    /**
-     * 
-     * @param created
-     *     The created
-     */
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
-    /**
-     * 
-     * @return
-     *     The district
-     */
-    public String getDistrict() {
-        return district;
-    }
-
-    /**
-     * 
-     * @param district
-     *     The district
-     */
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    /**
-     * 
-     * @return
-     *     The highGrade
-     */
-    public String getHighGrade() {
-        return highGrade;
-    }
-
-    /**
-     * 
-     * @param highGrade
-     *     The high_grade
-     */
-    public void setHighGrade(String highGrade) {
-        this.highGrade = highGrade;
-    }
-
-    /**
-     * 
-     * @return
-     *     The lastModified
-     */
-    public String getLastModified() {
-        return lastModified;
-    }
-
-    /**
-     * 
-     * @param lastModified
-     *     The last_modified
-     */
-    public void setLastModified(String lastModified) {
-        this.lastModified = lastModified;
-    }
-
-    /**
-     * 
-     * @return
-     *     The location
-     */
-    public Location getLocation() {
-        return location;
-    }
-
-    /**
-     * 
-     * @param location
-     *     The location
-     */
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    /**
-     * 
-     * @return
-     *     The lowGrade
-     */
-    public String getLowGrade() {
-        return lowGrade;
-    }
-
-    /**
-     * 
-     * @param lowGrade
-     *     The low_grade
-     */
-    public void setLowGrade(String lowGrade) {
-        this.lowGrade = lowGrade;
-    }
-
-    /**
-     * 
-     * @return
-     *     The name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 
-     * @param name
-     *     The name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 
-     * @return
-     *     The ncesId
-     */
-    public String getNcesId() {
-        return ncesId;
-    }
-
-    /**
-     * 
-     * @param ncesId
-     *     The nces_id
-     */
-    public void setNcesId(String ncesId) {
-        this.ncesId = ncesId;
-    }
-
-    /**
-     * 
-     * @return
-     *     The phone
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * 
-     * @param phone
-     *     The phone
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    /**
-     * 
-     * @return
-     *     The principal
-     */
-    public Principal getPrincipal() {
-        return principal;
-    }
-
-    /**
-     * 
-     * @param principal
-     *     The principal
-     */
-    public void setPrincipal(Principal principal) {
-        this.principal = principal;
-    }
-
-    /**
-     * 
-     * @return
-     *     The schoolNumber
-     */
-    public String getSchoolNumber() {
-        return schoolNumber;
-    }
-
-    /**
-     * 
-     * @param schoolNumber
-     *     The school_number
-     */
-    public void setSchoolNumber(String schoolNumber) {
-        this.schoolNumber = schoolNumber;
-    }
-
-    /**
-     * 
-     * @return
-     *     The sisId
-     */
-    public String getSisId() {
-        return sisId;
-    }
-
-    /**
-     * 
-     * @param sisId
-     *     The sis_id
-     */
-    public void setSisId(String sisId) {
-        this.sisId = sisId;
-    }
-
-    /**
-     * 
-     * @return
-     *     The stateId
-     */
-    public String getStateId() {
-        return stateId;
-    }
-
-    /**
-     * 
-     * @param stateId
-     *     The state_id
-     */
-    public void setStateId(String stateId) {
-        this.stateId = stateId;
-    }
-
-    /**
-     * 
-     * @return
-     *     The id
-     */
-    public String getId() {
+    public String getId()
+    {
         return id;
     }
 
-    /**
-     * 
-     * @param id
-     *     The id
-     */
-    public void setId(String id) {
+    public void setId(String id)
+    {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+    public String getSchool_number()
+    {
+        return school_number;
     }
 
+    public void setSchool_number(String school_number)
+    {
+        this.school_number = school_number;
+    }
+
+    public String getState_id()
+    {
+        return state_id;
+    }
+
+    public void setState_id(String state_id)
+    {
+        this.state_id = state_id;
+    }
+
+    public String getLast_modified()
+    {
+        return last_modified;
+    }
+
+    public void setLast_modified(String last_modified)
+    {
+        this.last_modified = last_modified;
+    }
+
+    public String getPhone()
+    {
+        return phone;
+    }
+
+    public void setPhone(String phone)
+    {
+        this.phone = phone;
+    }
+
+    public Principal getPrincipal()
+    {
+        return principal;
+    }
+
+    public void setPrincipal(Principal principal)
+    {
+        this.principal = principal;
+    }
+
+    public String getNces_id()
+    {
+        return nces_id;
+    }
+
+    public void setNces_id(String nces_id)
+    {
+        this.nces_id = nces_id;
+    }
+
+    public String getCreated()
+    {
+        return created;
+    }
+
+    public void setCreated(String created)
+    {
+        this.created = created;
+    }
+
+    public Location getLocation()
+    {
+        return location;
+    }
+
+    public void setLocation(Location location)
+    {
+        this.location = location;
+    }
+
+    public String getSis_id()
+    {
+        return sis_id;
+    }
+
+    public void setSis_id(String sis_id)
+    {
+        this.sis_id = sis_id;
+    }
+
+    public String getHigh_grade()
+    {
+        return high_grade;
+    }
+
+    public void setHigh_grade(String high_grade)
+    {
+        this.high_grade = high_grade;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getLow_grade()
+    {
+        return low_grade;
+    }
+
+    public void setLow_grade(String low_grade)
+    {
+        this.low_grade = low_grade;
+    }
+
+    public String getDistrict()
+    {
+        return district;
+    }
+
+    public void setDistrict(String district)
+    {
+        this.district = district;
+    }
 }

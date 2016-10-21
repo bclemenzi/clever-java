@@ -32,6 +32,60 @@ First you need some credentials.  Either get some by paying Clever some money, o
 
 Usage
 -----
-Below you will find a number of basic examples to guide you through the use of the Java library.
+The clever-java wrapper is broken up into a few different client classes.  This is to follow the pattern defined by the Clever API found at: [Clever API Exloper](https://clever.com/developers/docs/explorer#api_data)  This project currently has clients for the following:
 
-**COMING SOON**
+ * CleverDistrictsClient - Covering the API endpoints for what Clever identifies as "Districts" endpoints: [Districts API](https://clever.com/developers/docs/explorer#resource_districts)
+ * CleverTeachersClient - Covering the API endpoints for what Clever identifies as "Teachers" endpoints: [Teachers API](https://clever.com/developers/docs/explorer#resource_teachers)
+ * CleverStudentsClient - Covering the API endpoints for what Clever identifies as "Students" endpoints: [Students API](https://clever.com/developers/docs/explorer#resource_students)
+
+```java	
+String districtOAuthToken = "25...89e9";  //set your district oAuth token id here.  You can get this from the configured district inside Clever
+CleverDistrictsClient cleverDistrictsClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
+CleverTeachersClient cleverTeachersClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
+CleverStudentsClient cleverStudentsClient = new CleverStudentsClient(DISTRICT_OAUTH_TOKEN);
+```
+
+Get the district information using the CleverDistrictsClient
+
+```java	
+CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
+        
+District districtValue = cleverClient.getDistrict();
+System.out.println("District ID: " + districtValue.getId());
+```
+
+Get the schools within the district using the CleverDistrictsClient
+
+```java	
+String districtId = "4fd43cc56d11340000000005";
+List<School> schoolList = cleverDistrictsClient.getDistrictSchools(districtId, 10, null);
+        
+for(School schoolValue : schoolList)
+{
+	System.out.println("School Name: " + schoolValue.getName());
+}
+```
+
+Get the teachers within the district using the CleverDistrictsClient
+
+```java	
+String districtId = "4fd43cc56d11340000000005";
+List<Teacher> teacherList = cleverDistrictsClient.getDistrictTeachers(districtId, 10, null);
+        
+for(Teacher teacherValue : teacherList)
+{
+	System.out.println("Teacher Name: " + teacherValue.getName());
+}
+```
+
+Get the students within the district using the CleverDistrictsClient
+
+```java	
+String districtId = "4fd43cc56d11340000000005";
+List<Student> studentList = cleverDistrictsClient.getDistrictStudents(districtId, 10, null);
+        
+for(Student studentValue : studentList)
+{
+	System.out.println("Student Name: " + studentValue.getName());
+}
+```
