@@ -98,6 +98,18 @@ Teacher teacherValue = cleverTeachersClient.getTeacher(teacherId);
 System.out.println("Teacher Name: " + teacherValue.getName());
 ```
 
+Get a teacher's first 10 sections (classrooms) using the CleverTeachersClient
+
+```java	
+String teacherId = "509fbd7ec474fab64a8e9d53";
+List<Section> sectionList = cleverTeachersClient.getTeacherSections(teacherId, 10, null);
+        
+for(Section sectionValue : sectionList)
+{
+    System.out.println("Section Name: " + sectionValue.getName());
+}
+```
+
 Get the student by their Clever ID using the CleverStudentsClient
 
 ```java	
@@ -105,4 +117,16 @@ String studentId = "530e5960049e75a9262cff1d";
 Student studentValue = cleverStudentsClient.getStudent(studentId);
 
 System.out.println("Student Name: " + studentValue.getName());
+```
+
+Get a student's first 10 sections (classrooms) using the CleverStudentsClient
+
+```java	
+String studentId = "530e5960049e75a9262cff1d";
+List<Section> sectionList = cleverStudentsClient.getStudentSections(studentId, 10, null);
+        
+for(Section sectionValue : sectionList)
+{
+    System.out.println("Section Name: " + sectionValue.getName());
+}
 ```
