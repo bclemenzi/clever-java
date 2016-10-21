@@ -117,7 +117,12 @@ public class DistrictTest extends TestCase
         
         CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
         
-        List<Teacher> teacherList = cleverClient.getDistrictTeachers("4fd43cc56d11340000000005", 10, null);
+        String districtId = "4fd43cc56d11340000000005";
+        
+        BigInteger teacherCount = cleverClient.countDistrictTeachers(districtId);
+        System.out.println("testDistrictTeachers Totol: " + teacherCount.toString());
+        
+        List<Teacher> teacherList = cleverClient.getDistrictTeachers(districtId, 10, null);
         
         boolean hasTeachers = false;
         for(Teacher teacherValue : teacherList)

@@ -1,5 +1,6 @@
 package com.evotext.clever;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.evotext.clever.model.Paging;
 import com.evotext.clever.model.Section;
 import com.evotext.clever.model.Student;
 import com.evotext.clever.model.Teacher;
@@ -59,6 +61,30 @@ public class CleverStudentsClient extends CleverClient
      * 
      * @throws Exception
      */
+    public BigInteger countStudentTeachers(String studentId) throws Exception
+    {
+        StringBuffer fullApiUrl = new StringBuffer();
+        fullApiUrl.append(getBaseUrl());
+        fullApiUrl.append("students/");
+        fullApiUrl.append(studentId);
+        fullApiUrl.append("/teachers");
+        
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("limit", 1);
+                
+        JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
+        
+        ObjectMapper mapper = new ObjectMapper();
+        Paging pagingValue = mapper.readValue(responseJSON.getString("paging"),  Paging.class);
+        
+        BigInteger recordCount = new BigInteger(pagingValue.getTotal());
+        return recordCount;
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
     public List<Teacher> getStudentTeachers(String studentId, int limit, String startingAfter) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
@@ -90,6 +116,30 @@ public class CleverStudentsClient extends CleverClient
         }
         
         return objectList;
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    public BigInteger countStudentSections(String studentId) throws Exception
+    {
+        StringBuffer fullApiUrl = new StringBuffer();
+        fullApiUrl.append(getBaseUrl());
+        fullApiUrl.append("students/");
+        fullApiUrl.append(studentId);
+        fullApiUrl.append("/sections");
+        
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("limit", 1);
+                
+        JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
+        
+        ObjectMapper mapper = new ObjectMapper();
+        Paging pagingValue = mapper.readValue(responseJSON.getString("paging"),  Paging.class);
+        
+        BigInteger recordCount = new BigInteger(pagingValue.getTotal());
+        return recordCount;
     }
     
     /**
@@ -132,6 +182,28 @@ public class CleverStudentsClient extends CleverClient
         }
         
         return objectList;
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    public BigInteger countStudents() throws Exception
+    {
+        StringBuffer fullApiUrl = new StringBuffer();
+        fullApiUrl.append(getBaseUrl());
+        fullApiUrl.append("students");
+        
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("limit", 1);
+                
+        JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
+        
+        ObjectMapper mapper = new ObjectMapper();
+        Paging pagingValue = mapper.readValue(responseJSON.getString("paging"),  Paging.class);
+        
+        BigInteger recordCount = new BigInteger(pagingValue.getTotal());
+        return recordCount;
     }
     
     /**
