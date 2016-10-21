@@ -1,5 +1,6 @@
 package com.evotext.clever;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import junit.framework.Test;
@@ -83,6 +84,27 @@ public class DistrictTest extends TestCase
         assertTrue(hasSchools);
         
         System.out.println("====> Finished DistrictTest.testDistrictSchools");
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    public void testCountDistrictSchools() throws Exception
+    {
+        System.out.println("====> Starting DistrictTest.testCountDistrictSchools");
+        
+        CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
+        
+        BigInteger schoolTotal = cleverClient.countDistrictSchools("4fd43cc56d11340000000005");
+        System.out.println("testCountDistrictSchools Count: " + schoolTotal.toString());
+        
+        if(schoolTotal.intValue() > 0)
+        {
+            assertTrue(true);
+        }
+        
+        System.out.println("====> Finished DistrictTest.testCountDistrictSchools");
     }
     
     /**

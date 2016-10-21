@@ -1,5 +1,6 @@
 package com.evotext.clever;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.evotext.clever.model.District;
+import com.evotext.clever.model.Paging;
 import com.evotext.clever.model.School;
 import com.evotext.clever.model.Section;
 import com.evotext.clever.model.Student;
@@ -70,6 +72,32 @@ public class CleverDistrictsClient extends CleverClient
         {
             return objectList.get(0);
         }
+    }
+    
+    /**
+     * 
+     * @param districtId
+     * @return
+     * @throws Exception
+     */
+    public BigInteger countDistrictSchools(String districtId) throws Exception
+    {
+        StringBuffer fullApiUrl = new StringBuffer();
+        fullApiUrl.append(getBaseUrl());
+        fullApiUrl.append("districts/");
+        fullApiUrl.append(districtId);
+        fullApiUrl.append("/schools");
+        
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("limit", 1);
+        
+        ObjectMapper mapper = new ObjectMapper();
+        JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
+        
+        Paging pagingValue = mapper.readValue(responseJSON.getString("paging"),  Paging.class);
+        
+        BigInteger recordCount = new BigInteger(pagingValue.getTotal());
+        return recordCount;
     }
     
     /**
