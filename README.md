@@ -34,12 +34,13 @@ Usage
 -----
 The clever-java wrapper is broken up into a few different client classes.  This is to follow the pattern defined by the Clever API found at: [Clever API Exloper](https://clever.com/developers/docs/explorer#api_data)  This project currently has clients for the following:
 
- * CleverDistrictsClient - Covering the API endpoints for what Clever identifies as "Districts" endpoints: [Districts API](https://clever.com/developers/docs/explorer#resource_districts)
- * CleverTeachersClient - Covering the API endpoints for what Clever identifies as "Teachers" endpoints: [Teachers API](https://clever.com/developers/docs/explorer#resource_teachers)
- * CleverStudentsClient - Covering the API endpoints for what Clever identifies as "Students" endpoints: [Students API](https://clever.com/developers/docs/explorer#resource_students)
+ * CleverDistrictsClient - Covering the API endpoints for the "Districts" endpoints: [Districts API](https://clever.com/developers/docs/explorer#resource_districts)
+ * CleverTeachersClient - Covering the API endpoints for the "Teachers" endpoints: [Teachers API](https://clever.com/developers/docs/explorer#resource_teachers)
+ * CleverStudentsClient - Covering the API endpoints for the "Students" endpoints: [Students API](https://clever.com/developers/docs/explorer#resource_students)
 
 ```java	
-String districtOAuthToken = "25...89e9";  //set your district oAuth token id here.  You can get this from the configured district inside Clever
+String districtOAuthToken = "25...89e9";  //set your district oAuth token id here.
+
 CleverDistrictsClient cleverDistrictsClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
 CleverTeachersClient cleverTeachersClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
 CleverStudentsClient cleverStudentsClient = new CleverStudentsClient(DISTRICT_OAUTH_TOKEN);
