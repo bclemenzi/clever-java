@@ -104,7 +104,7 @@ public class CleverDistrictsClient extends CleverClient
      * 
      * @throws Exception
      */
-    public List<School> getDistrictSchools(String districtId, int limit, String startingAfter) throws Exception
+    public List<School> getDistrictSchools(String districtId, int limit, String startingAfter, String endingBefore) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
@@ -114,6 +114,15 @@ public class CleverDistrictsClient extends CleverClient
         
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
+        
+        if(!StringUtil.isNullOrEmpty(startingAfter))
+        {
+            parameters.put("starting_after", startingAfter);
+        }
+        if(!StringUtil.isNullOrEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
+        }
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
         JSONArray dataJSON = responseJSON.getJSONArray("data");
@@ -167,7 +176,7 @@ public class CleverDistrictsClient extends CleverClient
      * 
      * @throws Exception
      */
-    public List<Teacher> getDistrictTeachers(String districtId, int limit, String startingAfter) throws Exception
+    public List<Teacher> getDistrictTeachers(String districtId, int limit, String startingAfter, String endingBefore) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
@@ -181,6 +190,10 @@ public class CleverDistrictsClient extends CleverClient
         if(!StringUtil.isNullOrEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
+        }
+        if(!StringUtil.isNullOrEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
         }
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
@@ -233,7 +246,7 @@ public class CleverDistrictsClient extends CleverClient
      * @return
      * @throws Exception
      */
-    public List<Student> getDistrictStudents(String districtId, int limit, String startingAfter) throws Exception
+    public List<Student> getDistrictStudents(String districtId, int limit, String startingAfter, String endingBefore) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
@@ -247,6 +260,10 @@ public class CleverDistrictsClient extends CleverClient
         if(!StringUtil.isNullOrEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
+        }
+        if(!StringUtil.isNullOrEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
         }
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
@@ -299,7 +316,7 @@ public class CleverDistrictsClient extends CleverClient
      * @return
      * @throws Exception
      */
-    public List<Section> getDistrictSections(String districtId, int limit, String startingAfter) throws Exception
+    public List<Section> getDistrictSections(String districtId, int limit, String startingAfter, String endingBefore) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
@@ -313,6 +330,10 @@ public class CleverDistrictsClient extends CleverClient
         if(!StringUtil.isNullOrEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
+        }
+        if(!StringUtil.isNullOrEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
         }
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);

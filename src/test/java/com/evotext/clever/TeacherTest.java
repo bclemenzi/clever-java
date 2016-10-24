@@ -68,7 +68,7 @@ public class TeacherTest extends TestCase
         
         CleverTeachersClient cleverClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
         
-        List<Section> sectionList = cleverClient.getTeacherSections("509fbd7ec474fab64a8e9d53", 10, null);
+        List<Section> sectionList = cleverClient.getTeacherSections("509fbd7ec474fab64a8e9d53", 10, null, null);
         
         boolean hasSections = false;
         for(Section sectionValue : sectionList)
@@ -93,7 +93,7 @@ public class TeacherTest extends TestCase
         
         CleverTeachersClient cleverClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
         
-        List<Student> studentList = cleverClient.getTeacherStudents("509fbd7ec474fab64a8e9d53", 10, null);
+        List<Student> studentList = cleverClient.getTeacherStudents("509fbd7ec474fab64a8e9d53", 10, null, null);
         
         boolean hasStudents = false;
         for(Student studentValue : studentList)
@@ -118,7 +118,7 @@ public class TeacherTest extends TestCase
         
         CleverTeachersClient cleverClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
         
-        List<Teacher> teacherList = cleverClient.getTeachers(10, null);
+        List<Teacher> teacherList = cleverClient.getTeachers(10, null, null);
         
         boolean hasTeachers = false;
         for(Teacher teacherValue : teacherList)

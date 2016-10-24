@@ -71,7 +71,7 @@ public class DistrictTest extends TestCase
         
         CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
         
-        List<School> schoolList = cleverClient.getDistrictSchools("4fd43cc56d11340000000005", 10, null);
+        List<School> schoolList = cleverClient.getDistrictSchools("4fd43cc56d11340000000005", 10, null, null);
         
         boolean hasSchools = false;
         for(School schoolValue : schoolList)
@@ -122,7 +122,7 @@ public class DistrictTest extends TestCase
         BigInteger teacherCount = cleverClient.countDistrictTeachers(districtId);
         System.out.println("testDistrictTeachers Totol: " + teacherCount.toString());
         
-        List<Teacher> teacherList = cleverClient.getDistrictTeachers(districtId, 10, null);
+        List<Teacher> teacherList = cleverClient.getDistrictTeachers(districtId, 10, null, null);
         
         boolean hasTeachers = false;
         for(Teacher teacherValue : teacherList)
@@ -147,7 +147,7 @@ public class DistrictTest extends TestCase
         
         CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
         
-        List<Student> studentList = cleverClient.getDistrictStudents("4fd43cc56d11340000000005", 10, null);
+        List<Student> studentList = cleverClient.getDistrictStudents("4fd43cc56d11340000000005", 10, null, null);
         
         boolean hasStudents = false;
         for(Student studentValue : studentList)
@@ -172,7 +172,7 @@ public class DistrictTest extends TestCase
         
         CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
         
-        List<Section> sectionList = cleverClient.getDistrictSections("4fd43cc56d11340000000005", 10, null);
+        List<Section> sectionList = cleverClient.getDistrictSections("4fd43cc56d11340000000005", 10, null, null);
         
         boolean hasSections = false;
         for(Section sectionValue : sectionList)

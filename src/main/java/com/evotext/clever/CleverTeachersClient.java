@@ -90,7 +90,7 @@ public class CleverTeachersClient extends CleverClient
      * @return
      * @throws Exception
      */
-    public List<Section> getTeacherSections(String teacherId, int limit, String startingAfter) throws Exception
+    public List<Section> getTeacherSections(String teacherId, int limit, String startingAfter, String endingBefore) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
@@ -104,6 +104,10 @@ public class CleverTeachersClient extends CleverClient
         if(!StringUtil.isNullOrEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
+        }
+        if(!StringUtil.isNullOrEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
         }
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
@@ -156,7 +160,7 @@ public class CleverTeachersClient extends CleverClient
      * @return
      * @throws Exception
      */
-    public List<Student> getTeacherStudents(String teacherId, int limit, String startingAfter) throws Exception
+    public List<Student> getTeacherStudents(String teacherId, int limit, String startingAfter, String endingBefore) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
@@ -170,6 +174,10 @@ public class CleverTeachersClient extends CleverClient
         if(!StringUtil.isNullOrEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
+        }
+        if(!StringUtil.isNullOrEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
         }
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
@@ -215,7 +223,7 @@ public class CleverTeachersClient extends CleverClient
      * 
      * @throws Exception
      */
-    public List<Teacher> getTeachers(int limit, String startingAfter) throws Exception
+    public List<Teacher> getTeachers(int limit, String startingAfter, String endingBefore) throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
@@ -227,6 +235,10 @@ public class CleverTeachersClient extends CleverClient
         if(!StringUtil.isNullOrEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
+        }
+        if(!StringUtil.isNullOrEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
         }
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
