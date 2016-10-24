@@ -21,7 +21,7 @@ The easiest way to incorporate the library into your Java project is to use Mave
 <dependency>
     <groupId>com.nfbsoftware</groupId>
 	<artifactId>clever-java</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 </dependency>
 ```
 
@@ -65,7 +65,7 @@ Get the first 10 schools within the district using the CleverDistrictsClient
 
 ```java	
 String districtId = "4fd43cc56d11340000000005";
-List<School> schoolList = cleverDistrictsClient.getDistrictSchools(districtId, 10, null);
+List<School> schoolList = cleverDistrictsClient.getDistrictSchools(districtId, 10, null, null);
         
 for(School schoolValue : schoolList)
 {
@@ -77,7 +77,7 @@ Get the first 10 teachers within the district using the CleverDistrictsClient
 
 ```java	
 String districtId = "4fd43cc56d11340000000005";
-List<Teacher> teacherList = cleverDistrictsClient.getDistrictTeachers(districtId, 10, null);
+List<Teacher> teacherList = cleverDistrictsClient.getDistrictTeachers(districtId, 10, null, null);
         
 for(Teacher teacherValue : teacherList)
 {
@@ -89,7 +89,7 @@ Get the first 10 students within the district using the CleverDistrictsClient
 
 ```java	
 String districtId = "4fd43cc56d11340000000005";
-List<Student> studentList = cleverDistrictsClient.getDistrictStudents(districtId, 10, null);
+List<Student> studentList = cleverDistrictsClient.getDistrictStudents(districtId, 10, null, null);
         
 for(Student studentValue : studentList)
 {
@@ -110,7 +110,7 @@ Get a teacher's first 10 sections (classrooms) using the CleverTeachersClient
 
 ```java	
 String teacherId = "509fbd7ec474fab64a8e9d53";
-List<Section> sectionList = cleverTeachersClient.getTeacherSections(teacherId, 10, null);
+List<Section> sectionList = cleverTeachersClient.getTeacherSections(teacherId, 10, null, null);
         
 for(Section sectionValue : sectionList)
 {
@@ -131,7 +131,7 @@ Get a student's first 10 sections (classrooms) using the CleverStudentsClient
 
 ```java	
 String studentId = "530e5960049e75a9262cff1d";
-List<Section> sectionList = cleverStudentsClient.getStudentSections(studentId, 10, null);
+List<Section> sectionList = cleverStudentsClient.getStudentSections(studentId, 10, null, null);
         
 for(Section sectionValue : sectionList)
 {
