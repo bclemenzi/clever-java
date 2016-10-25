@@ -2,9 +2,8 @@ package com.evotext.clever;
 
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import com.evotext.clever.model.Section;
 import com.evotext.clever.model.Student;
@@ -15,32 +14,15 @@ import com.evotext.clever.model.Teacher;
  * @author Brendan Clemenzi
  * @email brendan@clemenzi.com
  */
-public class StudentTest extends TestCase
+public class StudentTest
 {
     private String DISTRICT_OAUTH_TOKEN = "DEMO_TOKEN";  // set your district oAuth token here
-    
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public StudentTest( String testName )
-    {
-        super( testName );
-    }
-    
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( StudentTest.class );
-    }
-    
+
     /**
      * 
      * @throws Exception
      */
+    @Test
     public void testStudent() throws Exception
     {
         System.out.println("====> Starting StudentTest.testStudent");
@@ -62,6 +44,7 @@ public class StudentTest extends TestCase
      * 
      * @throws Exception
      */
+    @Test
     public void testStudentSections() throws Exception
     {
         System.out.println("====> Starting StudentTest.testStudentSections");
@@ -87,6 +70,7 @@ public class StudentTest extends TestCase
      * 
      * @throws Exception
      */
+    @Test
     public void testStudentTeachers() throws Exception
     {
         System.out.println("====> Starting StudentTest.testStudentTeachers");
@@ -112,6 +96,7 @@ public class StudentTest extends TestCase
      * 
      * @throws Exception
      */
+    @Test
     public void testAllStudents() throws Exception
     {
         System.out.println("====> Starting StudentTest.testAllStudents");
