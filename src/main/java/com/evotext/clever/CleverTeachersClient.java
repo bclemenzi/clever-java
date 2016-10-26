@@ -256,24 +256,15 @@ public class CleverTeachersClient extends CleverClient
      * 
      * @throws Exception
      */
-    public List<Teacher> getAllTeachers(int limit, String startingAfter, String endingBefore) throws Exception
+    public List<Teacher> getAllTeachers() throws Exception
     {
         StringBuffer fullApiUrl = new StringBuffer();
         fullApiUrl.append(getBaseUrl());
         fullApiUrl.append("teachers");
         
-        List<Teacher> objectList = new ArrayList<>();
+        List<Teacher> objectList = new ArrayList<Teacher>();
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("limit", limit);
-        
-        if(StringUtils.isNotEmpty(startingAfter))
-        {
-            parameters.put("starting_after", startingAfter);
-        }
-        if(StringUtils.isNotEmpty(endingBefore))
-        {
-            parameters.put("ending_before", endingBefore);
-        }
+        parameters.put("limit", 100);  // Sets a transaction limit of 100 teachers at a time coming over the line for each page.
         
         String uri = fullApiUrl.toString();
         boolean keepGoing = true;
@@ -309,5 +300,4 @@ public class CleverTeachersClient extends CleverClient
         
         return objectList;
     }
-
 }

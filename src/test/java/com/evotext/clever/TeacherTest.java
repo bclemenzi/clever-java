@@ -123,7 +123,7 @@ public class TeacherTest
         
         CleverTeachersClient cleverClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
         
-        List<Teacher> teacherList = cleverClient.getTeachers(10, null, null);
+        List<Teacher> teacherList = cleverClient.getAllTeachers();
         
         boolean hasTeachers = false;
         for(Teacher teacherValue : teacherList)

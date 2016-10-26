@@ -122,6 +122,34 @@ public class DistrictTest
 
         System.out.println("====> Finished DistrictTest.testDistrictTeachers");
     }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testAllDistrictTeachers() throws Exception
+    {
+        System.out.println("====> Starting DistrictTest.testAllDistrictTeachers");
+
+        CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
+
+        String districtId = "4fd43cc56d11340000000005";
+
+        List<Teacher> teacherList = cleverClient.getAllDistrictTeachers(districtId);
+
+        boolean hasTeachers = false;
+        for (Teacher teacherValue : teacherList)
+        {
+            System.out.println("testDistrictTeachers Teacher: " + teacherValue.getName());
+
+            hasTeachers = true;
+        }
+
+        assertTrue(hasTeachers);
+
+        System.out.println("====> Finished DistrictTest.testAllDistrictTeachers");
+    }
 
     /**
      * 
@@ -154,6 +182,32 @@ public class DistrictTest
      * @throws Exception
      */
     @Test
+    public void testAllDistrictStudents() throws Exception
+    {
+        System.out.println("====> Starting DistrictTest.testDistrictStudents");
+
+        CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
+
+        List<Student> studentList = cleverClient.getAllDistrictStudents("4fd43cc56d11340000000005");
+
+        boolean hasStudents = false;
+        for (Student studentValue : studentList)
+        {
+            System.out.println("testDistrictStudents Student: " + studentValue.getName());
+
+            hasStudents = true;
+        }
+
+        assertTrue(hasStudents);
+
+        System.out.println("====> Finished DistrictTest.testDistrictStudents");
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    @Test
     public void testDistrictSections() throws Exception
     {
         System.out.println("====> Starting DistrictTest.testDistrictSections");
@@ -173,5 +227,31 @@ public class DistrictTest
         assertTrue(hasSections);
 
         System.out.println("====> Finished DistrictTest.testDistrictSections");
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testAllDistrictSections() throws Exception
+    {
+        System.out.println("====> Starting DistrictTest.testAllDistrictSections");
+
+        CleverDistrictsClient cleverClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
+
+        List<Section> sectionList = cleverClient.getAllDistrictSections("4fd43cc56d11340000000005");
+
+        boolean hasSections = false;
+        for (Section sectionValue : sectionList)
+        {
+            System.out.println("testAllDistrictSections Section: " + sectionValue.getName());
+
+            hasSections = true;
+        }
+
+        assertTrue(hasSections);
+
+        System.out.println("====> Finished DistrictTest.testAllDistrictSections");
     }
 }

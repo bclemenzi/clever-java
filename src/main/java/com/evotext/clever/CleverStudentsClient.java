@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.evotext.clever.model.Data;
+import com.evotext.clever.model.Link;
 import com.evotext.clever.model.Paging;
 import com.evotext.clever.model.Section;
 import com.evotext.clever.model.Student;
@@ -194,6 +196,58 @@ public class CleverStudentsClient extends CleverClient
     
     /**
      * 
+     * @param studentId
+     * @return
+     * @throws Exception
+     */
+    public List<Section> getAllStudentSections(String studentId) throws Exception
+    {
+        StringBuffer fullApiUrl = new StringBuffer();
+        fullApiUrl.append(getBaseUrl());
+        fullApiUrl.append("students/");
+        fullApiUrl.append(studentId);
+        fullApiUrl.append("/sections");
+        
+        List<Section> objectList = new ArrayList<Section>();
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("limit", 100);  // Sets a transaction limit of 100 teachers at a time coming over the line for each page.
+        
+        String uri = fullApiUrl.toString();
+        boolean keepGoing = true;
+        while (keepGoing)
+        {  
+            keepGoing = false;
+            JSONObject responseJSON = get(uri, this.m_districtOAuthToken, parameters);
+            ObjectMapper mapper = new ObjectMapper();
+
+            Data data = mapper.readValue(responseJSON.toString(), Data.class);
+            List<Link> linkList = data.getLinks();
+            for (Link link : linkList)
+            {
+                if (StringUtils.equals(link.getRel(), "next"))
+                {
+                    keepGoing = true;
+                    uri = getApiUrl() + link.getUri();
+                }
+            }
+        
+            JSONArray dataJSON = responseJSON.getJSONArray("data");
+            
+            for(int i=0; i <dataJSON.length(); i++)
+            {
+                JSONObject joData = dataJSON.getJSONObject(i);
+                Section objectValue = mapper.readValue(joData.getString("data"), Section.class);
+                
+                objectList.add(objectValue);
+            }
+        
+        }
+        
+        return objectList;
+    }
+    
+    /**
+     * 
      * @throws Exception
      */
     public BigInteger countStudents() throws Exception
@@ -252,6 +306,50 @@ public class CleverStudentsClient extends CleverClient
             Student objectValue = mapper.readValue(joData.getString("data"), Student.class);
             
             objectList.add(objectValue);
+        }
+        
+        return objectList;
+    }
+    
+    public List<Student> getAllStudents() throws Exception
+    {
+        StringBuffer fullApiUrl = new StringBuffer();
+        fullApiUrl.append(getBaseUrl());
+        fullApiUrl.append("students");
+        
+        List<Student> objectList = new ArrayList<Student>();
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("limit", 100);  // Sets a transaction limit of 100 teachers at a time coming over the line for each page.
+        
+        String uri = fullApiUrl.toString();
+        boolean keepGoing = true;
+        while (keepGoing)
+        {  
+            keepGoing = false;
+            JSONObject responseJSON = get(uri, this.m_districtOAuthToken, parameters);
+            ObjectMapper mapper = new ObjectMapper();
+
+            Data data = mapper.readValue(responseJSON.toString(), Data.class);
+            List<Link> linkList = data.getLinks();
+            for (Link link : linkList)
+            {
+                if (StringUtils.equals(link.getRel(), "next"))
+                {
+                    keepGoing = true;
+                    uri = getApiUrl() + link.getUri();
+                }
+            }
+        
+            JSONArray dataJSON = responseJSON.getJSONArray("data");
+            
+            for(int i=0; i <dataJSON.length(); i++)
+            {
+                JSONObject joData = dataJSON.getJSONObject(i);
+                Student objectValue = mapper.readValue(joData.getString("data"), Student.class);
+                
+                objectList.add(objectValue);
+            }
+        
         }
         
         return objectList;

@@ -71,6 +71,32 @@ public class StudentTest
      * @throws Exception
      */
     @Test
+    public void testAllStudentSections() throws Exception
+    {
+        System.out.println("====> Starting StudentTest.testAllStudentSections");
+        
+        CleverStudentsClient cleverClient = new CleverStudentsClient(DISTRICT_OAUTH_TOKEN);
+        
+        List<Section> sectionList = cleverClient.getAllStudentSections("530e5960049e75a9262cff1d");
+        
+        boolean hasSections = false;
+        for(Section sectionValue : sectionList)
+        {
+            System.out.println("testAllStudentSections Section: " + sectionValue.getName());
+            
+            hasSections = true;
+        }
+        
+        assertTrue(hasSections);
+        
+        System.out.println("====> Finished StudentTest.testAllStudentSections");
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    @Test
     public void testStudentTeachers() throws Exception
     {
         System.out.println("====> Starting StudentTest.testStudentTeachers");
