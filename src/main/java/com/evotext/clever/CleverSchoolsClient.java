@@ -149,8 +149,7 @@ public class CleverSchoolsClient extends CleverClient
             JSONObject responseJSON = get(uri, this.m_districtOAuthToken, parameters);
             ObjectMapper mapper = new ObjectMapper();
 
-            Data data = mapper.readValue(responseJSON.toString(), Data.class);
-            List<Link> linkList = data.getLinks();
+            List<Link> linkList = this.getLinkList(responseJSON);
             for (Link link : linkList)
             {
                 if (StringUtils.equals(link.getRel(), "next"))
@@ -271,8 +270,7 @@ public class CleverSchoolsClient extends CleverClient
             JSONObject responseJSON = get(uri, this.m_districtOAuthToken, parameters);
             ObjectMapper mapper = new ObjectMapper();
 
-            Data data = mapper.readValue(responseJSON.toString(), Data.class);
-            List<Link> linkList = data.getLinks();
+            List<Link> linkList = this.getLinkList(responseJSON);
             for (Link link : linkList)
             {
                 if (StringUtils.equals(link.getRel(), "next"))
@@ -393,8 +391,7 @@ public class CleverSchoolsClient extends CleverClient
             JSONObject responseJSON = get(uri, this.m_districtOAuthToken, parameters);
             ObjectMapper mapper = new ObjectMapper();
 
-            Data data = mapper.readValue(responseJSON.toString(), Data.class);
-            List<Link> linkList = data.getLinks();
+            List<Link> linkList = this.getLinkList(responseJSON);
             for (Link link : linkList)
             {
                 if (StringUtils.equals(link.getRel(), "next"))

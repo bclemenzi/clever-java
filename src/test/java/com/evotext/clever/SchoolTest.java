@@ -52,9 +52,7 @@ public class SchoolTest
 
         CleverSchoolsClient cleverClient = new CleverSchoolsClient(DISTRICT_OAUTH_TOKEN);
 
-        String districtId = "4fd43cc56d11340000000005";
-
-        List<Teacher> teacherList = cleverClient.getAllSchoolTeachers(districtId);
+        List<Teacher> teacherList = cleverClient.getAllSchoolTeachers("530e595026403103360ff9fd");
 
         boolean hasTeachers = false;
         for (Teacher teacherValue : teacherList)
@@ -80,7 +78,7 @@ public class SchoolTest
 
         CleverSchoolsClient cleverClient = new CleverSchoolsClient(DISTRICT_OAUTH_TOKEN);
 
-        List<Section> sectionList = cleverClient.getAllSchoolSections("4fd43cc56d11340000000005");
+        List<Section> sectionList = cleverClient.getAllSchoolSections("530e595026403103360ff9fd");
 
         boolean hasSections = false;
         for (Section sectionValue : sectionList)
