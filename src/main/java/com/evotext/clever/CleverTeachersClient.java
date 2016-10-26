@@ -223,6 +223,45 @@ public class CleverTeachersClient extends CleverClient
         fullApiUrl.append(getBaseUrl());
         fullApiUrl.append("teachers");
         
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("limit", limit);
+        
+        if(StringUtils.isNotEmpty(startingAfter))
+        {
+            parameters.put("starting_after", startingAfter);
+        }
+        if(StringUtils.isNotEmpty(endingBefore))
+        {
+            parameters.put("ending_before", endingBefore);
+        }
+                
+        JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
+        JSONArray dataJSON = responseJSON.getJSONArray("data");
+        
+        ObjectMapper mapper = new ObjectMapper();
+        List<Teacher> objectList = new ArrayList<Teacher>();
+        
+        for(int i=0; i <dataJSON.length(); i++)
+        {
+            JSONObject joData = dataJSON.getJSONObject(i);
+            Teacher objectValue = mapper.readValue(joData.getString("data"), Teacher.class);
+            
+            objectList.add(objectValue);
+        }
+        
+        return objectList;
+    }
+    
+    /**
+     * 
+     * @throws Exception
+     */
+    public List<Teacher> getAllTeachers(int limit, String startingAfter, String endingBefore) throws Exception
+    {
+        StringBuffer fullApiUrl = new StringBuffer();
+        fullApiUrl.append(getBaseUrl());
+        fullApiUrl.append("teachers");
+        
         List<Teacher> objectList = new ArrayList<>();
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
