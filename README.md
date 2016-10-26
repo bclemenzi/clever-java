@@ -21,7 +21,7 @@ The easiest way to incorporate the library into your Java project is to use Mave
 <dependency>
     <groupId>com.nfbsoftware</groupId>
 	<artifactId>clever-java</artifactId>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 </dependency>
 ```
 
@@ -35,6 +35,7 @@ Usage
 The clever-java wrapper is broken up into a few different client classes.  This is to follow the pattern defined by the Clever API found at: [Clever API Exloper](https://clever.com/developers/docs/explorer#api_data)  This project currently has clients for the following:
 
  * CleverDistrictsClient - Covering the API endpoints for the "Districts" endpoints: [Districts API](https://clever.com/developers/docs/explorer#resource_districts)
+ * CleverSchoolsClient - Covering the API endpoints for the "Schools" endpoints: [Schools API](https://clever.com/developers/docs/explorer#resource_schools)
  * CleverTeachersClient - Covering the API endpoints for the "Teachers" endpoints: [Teachers API](https://clever.com/developers/docs/explorer#resource_teachers)
  * CleverStudentsClient - Covering the API endpoints for the "Students" endpoints: [Students API](https://clever.com/developers/docs/explorer#resource_students)
 
