@@ -9,6 +9,7 @@ Features
 
   * Supports Clever API - [Clever Developers](https://dev.clever.com)
   * Fully implemented authentication system.  Just enter your Clever credentials and go!
+  * Includes a number of help methods for working with Clever's Secure Sync.
   * Published on Maven Central Repository.
 
 Getting started
@@ -79,6 +80,18 @@ Get the first 10 teachers within the district using the CleverDistrictsClient
 ```java	
 String districtId = "4fd43cc56d11340000000005";
 List<Teacher> teacherList = cleverDistrictsClient.getDistrictTeachers(districtId, 10, null, null);
+        
+for(Teacher teacherValue : teacherList)
+{
+	System.out.println("Teacher Name: " + teacherValue.getName());
+}
+```
+
+Get the first ALL teachers within the district using the CleverDistrictsClient.  The method uses sub transaction of 100 items per page to iterate through ALL the teacher records.  This is an expensive transaction so please use it wisely.  FYI, the "All" methods can be found for the other object types as well and can be useful when performing full synchronizations;
+
+```java	
+String districtId = "4fd43cc56d11340000000005";
+List<Teacher> teacherList = cleverDistrictsClient.getAllDistrictTeachers(districtId);
         
 for(Teacher teacherValue : teacherList)
 {
