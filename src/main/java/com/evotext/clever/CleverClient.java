@@ -1,9 +1,17 @@
 package com.evotext.clever;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.evotext.clever.model.Link;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.goebl.david.Webb;
 import com.goebl.david.WebbException;
 
@@ -60,5 +68,25 @@ abstract class CleverClient
     protected String getApiUrl()
     {
     	return this.m_apiUrl;
+    }
+    
+    protected List<Link> getLinkList(JSONObject responseJSON) throws JSONException, JsonParseException, JsonMappingException, IOException
+    {
+    	List<Link> linkList = new ArrayList<>();
+    	JSONArray dataJSON = responseJSON.getJSONArray("links");
+        
+        for(int i=0; i <dataJSON.length(); i++)
+        {
+            JSONObject joData = dataJSON.getJSONObject(i);
+            String rel = joData.getString("rel");
+            String uri = joData.getString("uri");
+
+            Link link = new Link();
+            link.setRel(rel);
+            link.setUri(uri);
+            
+            linkList.add(link);
+        }
+        return linkList;
     }
 }
