@@ -1,13 +1,17 @@
 package com.evotext.clever;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.json.JSONException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.evotext.clever.model.Section;
 import com.evotext.clever.model.Student;
 import com.evotext.clever.model.Teacher;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 /**
  * 
@@ -39,6 +43,22 @@ public class TeacherTest
         
         System.out.println("====> Finished TeacherTest.testTeacher");
     }
+    
+	@Test
+	public void testTeacherCount() throws JsonParseException, JsonMappingException, IOException, JSONException 
+	{
+		System.out.println("====> Starting TeacherTest.testTeacherCount");
+        
+        CleverTeachersClient cleverClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
+        
+        int i = cleverClient.countTeachers();
+        
+        System.out.println("testTeacher Count: " + i);
+        
+		assertEquals(i, 92);
+		
+        System.out.println("====> Finished TeacherTest.testTeacherCount");
+	}
     
     /**
      * 

@@ -6,14 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.evotext.clever.model.Data;
+import com.evotext.clever.model.Link;
 import com.evotext.clever.model.Paging;
 import com.evotext.clever.model.Section;
 import com.evotext.clever.model.Student;
 import com.evotext.clever.model.Teacher;
-import com.evotext.clever.util.StringUtil;
+import com.evotext.clever.requests.ListRequest;
+import com.evotext.clever.util.Connect;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -70,7 +75,7 @@ public class CleverTeachersClient extends CleverClient
         fullApiUrl.append("/sections");
         
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("limit", 1);
+        parameters.put("count", true);
                 
         JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
         
@@ -101,11 +106,11 @@ public class CleverTeachersClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtil.isNullOrEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtil.isNullOrEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
@@ -171,11 +176,11 @@ public class CleverTeachersClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtil.isNullOrEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtil.isNullOrEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
@@ -197,27 +202,16 @@ public class CleverTeachersClient extends CleverClient
         return objectList;
     }    
     
-    /**
-     * 
-     * @throws Exception
-     */
-    public BigInteger countTeachers() throws Exception
-    {
-        StringBuffer fullApiUrl = new StringBuffer();
-        fullApiUrl.append(getBaseUrl());
-        fullApiUrl.append("teachers");
-        
-        Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("limit", 1);
-                
-        JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
-        
-        ObjectMapper mapper = new ObjectMapper();
-        Paging pagingValue = mapper.readValue(responseJSON.getString("paging"),  Paging.class);
-        
-        BigInteger recordCount = new BigInteger(pagingValue.getTotal());
-        return recordCount;
-    }
+	public int countTeachers() throws JSONException {
+		String url = getBaseUrl() + "teachers";
+
+		ListRequest request = new ListRequest.Builder(m_districtOAuthToken, url).count(true).build();
+		JSONObject jo = Connect.get(request);
+		int i = jo.getInt("count");
+
+		return i;
+	}
+
     
     /**
      * 
@@ -229,32 +223,52 @@ public class CleverTeachersClient extends CleverClient
         fullApiUrl.append(getBaseUrl());
         fullApiUrl.append("teachers");
         
+        List<Teacher> objectList = new ArrayList<>();
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtil.isNullOrEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtil.isNullOrEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
-                
-        JSONObject responseJSON = get(fullApiUrl.toString(), this.m_districtOAuthToken, parameters);
-        JSONArray dataJSON = responseJSON.getJSONArray("data");
         
-        ObjectMapper mapper = new ObjectMapper();
-        List<Teacher> objectList = new ArrayList<Teacher>();
-        
-        for(int i=0; i <dataJSON.length(); i++)
+        String uri = fullApiUrl.toString();
+        boolean keepGoing = true;
+        while (keepGoing)
         {
-            JSONObject joData = dataJSON.getJSONObject(i);
-            Teacher objectValue = mapper.readValue(joData.getString("data"), Teacher.class);
+                
+        	keepGoing = false;
+        	JSONObject responseJSON = get(uri, this.m_districtOAuthToken, parameters);
+        	ObjectMapper mapper = new ObjectMapper();
+
+        	Data data = mapper.readValue(responseJSON.toString(), Data.class);
+        	List<Link> linkList = data.getLinks();
+        	for (Link link : linkList)
+        	{
+        		if (StringUtils.equals(link.getRel(), "next"))
+        		{
+        			keepGoing = true;
+        			uri = getApiUrl() + link.getUri();
+        		}
+        	}
+        
+        	JSONArray dataJSON = responseJSON.getJSONArray("data");
             
-            objectList.add(objectValue);
+            for(int i=0; i <dataJSON.length(); i++)
+            {
+                JSONObject joData = dataJSON.getJSONObject(i);
+                Teacher objectValue = mapper.readValue(joData.getString("data"), Teacher.class);
+                
+                objectList.add(objectValue);
+            }
+        
         }
         
         return objectList;
     }
+
 }

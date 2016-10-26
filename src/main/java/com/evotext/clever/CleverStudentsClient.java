@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,7 +14,6 @@ import com.evotext.clever.model.Paging;
 import com.evotext.clever.model.Section;
 import com.evotext.clever.model.Student;
 import com.evotext.clever.model.Teacher;
-import com.evotext.clever.util.StringUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -96,11 +96,11 @@ public class CleverStudentsClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtil.isNullOrEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtil.isNullOrEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
@@ -166,11 +166,11 @@ public class CleverStudentsClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtil.isNullOrEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtil.isNullOrEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
@@ -231,11 +231,11 @@ public class CleverStudentsClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtil.isNullOrEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtil.isNullOrEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }

@@ -56,4 +56,9 @@ abstract class CleverClient
     {
         return this.m_apiUrl + "/" + this.m_version + "/";
     }
+    
+    protected String getApiUrl()
+    {
+    	return this.m_apiUrl;
+    }
 }
