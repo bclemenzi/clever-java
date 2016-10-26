@@ -121,7 +121,7 @@ public class CleverDistrictsClient extends CleverClient
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtils.isNotEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
@@ -189,7 +189,7 @@ public class CleverDistrictsClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtils.isNotEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
@@ -310,11 +310,11 @@ public class CleverDistrictsClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtils.isNotEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtils.isNotEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
@@ -432,11 +432,11 @@ public class CleverDistrictsClient extends CleverClient
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("limit", limit);
         
-        if(!StringUtils.isNotEmpty(startingAfter))
+        if(StringUtils.isNotEmpty(startingAfter))
         {
             parameters.put("starting_after", startingAfter);
         }
-        if(!StringUtils.isNotEmpty(endingBefore))
+        if(StringUtils.isNotEmpty(endingBefore))
         {
             parameters.put("ending_before", endingBefore);
         }
