@@ -6,6 +6,7 @@ package com.evotext.clever.model;
  */
 public class District 
 {
+    private String mdr_number;
     private String school_number;
     private String phone;
     private String high_grade;
@@ -29,6 +30,15 @@ public class District
     public void setSchool_number(String school_number)
     {
         this.school_number = school_number;
+    }
+    
+    public String getMdr_number()
+    {
+        return mdr_number;
+    }
+    public void setMdr_number(String mdr_number)
+    {
+        this.mdr_number = mdr_number;
     }
 
     public String getPhone()
