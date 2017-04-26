@@ -55,7 +55,7 @@ public class TeacherTest
         
         System.out.println("testTeacher Count: " + i);
         
-		assertEquals(i, 92);
+		assertEquals(i, 89);
 		
         System.out.println("====> Finished TeacherTest.testTeacherCount");
 	}
