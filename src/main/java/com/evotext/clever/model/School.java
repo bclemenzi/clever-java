@@ -5,6 +5,7 @@ public class School
 {
     private String id;
     private String school_number;
+    private String mdr_number;
     private String state_id;
     private String last_modified;
     private String phone;
@@ -37,6 +38,16 @@ public class School
     public void setSchool_number(String school_number)
     {
         this.school_number = school_number;
+    }
+
+    public String getMdr_number()
+    {
+        return mdr_number;
+    }
+
+    public void setMdr_number(String mdr_number)
+    {
+        this.mdr_number = mdr_number;
     }
 
     public String getState_id()
