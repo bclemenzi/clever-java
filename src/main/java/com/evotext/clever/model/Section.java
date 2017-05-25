@@ -3,10 +3,13 @@ package com.evotext.clever.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -20,6 +23,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
     "last_modified",
     "name",
     "period",
+    "section_number",
     "school",
     "sis_id",
     "students",
@@ -47,6 +51,8 @@ public class Section {
     private String name;
     @JsonProperty("period")
     private String period;
+    @JsonProperty("section_number")
+    private String section_number;
     @JsonProperty("school")
     private String school;
     @JsonProperty("sis_id")
@@ -222,6 +228,26 @@ public class Section {
     @JsonProperty("period")
     public void setPeriod(String period) {
         this.period = period;
+    }
+    
+    /**
+     * 
+     * @return
+     *     The section_number
+     */
+    @JsonProperty("section_number")
+    public String getSection_number() {
+        return section_number;
+    }
+
+    /**
+     * 
+     * @param mdr_number
+     *     The mdr number
+     */
+    @JsonProperty("section_number")
+    public void setSection_number(String section_number) {
+        this.section_number = section_number;
     }
 
     /**
