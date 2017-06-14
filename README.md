@@ -37,6 +37,7 @@ The clever-java wrapper is broken up into a few different client classes.  This 
 
  * CleverDistrictsClient - Covering the API endpoints for the "Districts" endpoints: [Districts API](https://clever.com/developers/docs/explorer#resource_districts)
  * CleverSchoolsClient - Covering the API endpoints for the "Schools" endpoints: [Schools API](https://clever.com/developers/docs/explorer#resource_schools)
+ * CleverSchoolAdminClient - Covering the API endpoints for the "School Admins" endpoints: [School Admin API](https://clever.com/developers/docs/explorer#school_admins)
  * CleverTeachersClient - Covering the API endpoints for the "Teachers" endpoints: [Teachers API](https://clever.com/developers/docs/explorer#resource_teachers)
  * CleverStudentsClient - Covering the API endpoints for the "Students" endpoints: [Students API](https://clever.com/developers/docs/explorer#resource_students)
 
@@ -44,6 +45,8 @@ The clever-java wrapper is broken up into a few different client classes.  This 
 String DISTRICT_OAUTH_TOKEN = "DEMO_TOKEN";  //set your district oAuth token id here.
 
 CleverDistrictsClient cleverDistrictsClient = new CleverDistrictsClient(DISTRICT_OAUTH_TOKEN);
+CleverSchoolsClient cleverSchoolsClient = new CleverSchoolsClient(DISTRICT_OAUTH_TOKEN);
+CleverSchoolAdminClient cleverSchoolAdminsClient = new CleverSchoolAdminClient(DISTRICT_OAUTH_TOKEN);
 CleverTeachersClient cleverTeachersClient = new CleverTeachersClient(DISTRICT_OAUTH_TOKEN);
 CleverStudentsClient cleverStudentsClient = new CleverStudentsClient(DISTRICT_OAUTH_TOKEN);
 ```
