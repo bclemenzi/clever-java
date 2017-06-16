@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  *
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "district", "schools", "staff_id", "name", "title", "email", "id" })
+@JsonPropertyOrder({ "district", "schools", "staff_id", "credentials", "name", "title", "email", "id" })
 public class SchoolAdmin
 {
     @JsonProperty("district")
@@ -36,6 +36,9 @@ public class SchoolAdmin
     
     @JsonProperty("id")
     private String id;
+    
+    @JsonProperty("credentials")
+    private Credentials credentials;
 
     @JsonProperty("district")
     public String getDistrict()
@@ -119,6 +122,18 @@ public class SchoolAdmin
     public void setId(String id)
     {
         this.id = id;
+    }
+    
+    @JsonProperty("credentials")
+    public Credentials getCredentials()
+    {
+        return credentials;
+    }
+
+    @JsonProperty("credentials")
+    public void setCredentials(Credentials credentials)
+    {
+        this.credentials = credentials;
     }
 
     @Override
