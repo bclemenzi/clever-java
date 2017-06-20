@@ -49,7 +49,7 @@ abstract class CleverClient
         }
         catch (WebbException we)
         {
-            System.out.println(we);
+            System.out.println("Error executing apiUrl: " + apiUrl + "  Error: " + we.getMessage());
             jsonObject = new JSONObject();
         }
         
