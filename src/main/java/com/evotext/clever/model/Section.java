@@ -17,6 +17,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @JsonPropertyOrder({
     "course_name",
     "course_number",
+    "course_description",
     "created",
     "district",
     "grade",
@@ -39,6 +40,8 @@ public class Section {
     private String courseName;
     @JsonProperty("course_number")
     private String courseNumber;
+    @JsonProperty("course_description")
+    private String courseDescription;
     @JsonProperty("created")
     private String created;
     @JsonProperty("district")
@@ -108,6 +111,26 @@ public class Section {
     @JsonProperty("course_number")
     public void setCourseNumber(String courseNumber) {
         this.courseNumber = courseNumber;
+    }
+    
+    /**
+     * 
+     * @return
+     *     The courseDescription
+     */
+    @JsonProperty("course_description")
+    public String getCourseDescription() {
+        return courseDescription;
+    }
+
+    /**
+     * 
+     * @param courseDescription
+     *     The course_description
+     */
+    @JsonProperty("course_description")
+    public void setCourseDescription(String courseDescription) {
+        this.courseDescription = courseDescription;
     }
 
     /**
