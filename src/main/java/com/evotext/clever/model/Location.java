@@ -11,6 +11,8 @@ public class Location
     private String address;
     private String state;
     private String city;
+    private String lat;
+    private String lon;
 
     public String getZip()
     {
@@ -46,5 +48,23 @@ public class Location
     public void setCity(String city)
     {
         this.city = city;
+    }
+    
+    public String getLat()
+    {
+        return lat;
+    }
+    public void setLat(String lat)
+    {
+        this.lat = lat;
+    }
+    
+    public String getLon()
+    {
+        return lon;
+    }
+    public void setLon(String lon)
+    {
+        this.lon = lon;
     }
 }
